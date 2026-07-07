@@ -1,178 +1,182 @@
-# 🏦 MoneyMan — AI-Powered Digital Wealth Advisory Avatar
+<div align="center">
 
-[![Build Status](https://img.shields.io/badge/Build-Passing-brightgreen?style=for-the-badge)](https://github.com/Durgaprasad-Developer/MoneyMan)
-[![Track 01](https://img.shields.io/badge/IDBI%20Innovate-Track%2001-orange?style=for-the-badge&color=e65c00)](https://github.com/Durgaprasad-Developer/MoneyMan)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](https://opensource.org/licenses/MIT)
+# MoneyMan
 
----
+**AI-Powered Digital Wealth Advisory for IDBI Bank**
 
-![MoneyMan Project Banner](./screenshots/moneyman_banner.png)
+[![IDBI Innovate 2026](https://img.shields.io/badge/IDBI%20Innovate-2026-4B3EC8?style=flat-square)](https://github.com/Durgaprasad-Developer/MoneyMan)&nbsp;&nbsp;[![Track 01](https://img.shields.io/badge/Track-01%20Digital%20Wealth-8B5CF6?style=flat-square)](https://github.com/Durgaprasad-Developer/MoneyMan)&nbsp;&nbsp;[![Live](https://img.shields.io/badge/Live%20Demo-Render-00C896?style=flat-square)](https://moneyman-27st.onrender.com/)&nbsp;&nbsp;[![License](https://img.shields.io/badge/License-MIT-F5C94E?style=flat-square)](./LICENSE)
 
-> **Built for IDBI Innovate 2026 — Track 01: AI-Powered Digital Wealth Advisory**  
-> **Live Production Link:** [https://moneyman-27st.onrender.com/](https://moneyman-27st.onrender.com/)
+</div>
 
 ---
 
-## 💡 The Core Vision
-
-Wealth advisory in standard banking applications is historically static, fragmented, and detached from a customer's true financial lifestyle. Traditional systems force customers to fill out tedious, multi-step risk assessment questionnaires, leading to high abandonment rates and outdated investor risk scores.
-
-**MoneyMan** redefines this paradigm by serving as a seamless plug-and-play module for the IDBI ecosystem. Rather than asking static questions, it silently constructs a dynamic **"Financial Behaviour Twin"** of the customer by parsing historical transaction data. It automatically scores risk profiles, monitors spending anomalies, generates audit-friendly explainable advice, and acts as a voice-enabled conversational wealth advisor.
+MoneyMan is a plug-and-play AI wealth advisory module designed for IDBI Bank's digital ecosystem. It builds a **Financial Behaviour Twin** from 6 months of transaction history — no questionnaires, no friction. It scores risk, detects anomalies, and delivers proactive, explainable advice through a voice-enabled conversational avatar.
 
 ---
 
-## 🏗️ System Architecture & Data Flow
+## Interface
 
-MoneyMan is architected to prove feasibility for a bank-scale integration. The engine consists of a lightweight React frontend and an analytics-driven Node.js/Express backend that feeds structured context directly to the LLM.
+<table>
+  <tr>
+    <td width="50%">
+      <img src="./screenshots/home_view.png" alt="Home — Bento overview with live alerts" width="100%"/>
+      <br/>
+      <sub><b>Home</b> · Portfolio snapshot + proactive nudges</sub>
+    </td>
+    <td width="50%">
+      <img src="./screenshots/dashboard_view.png" alt="Dashboard — spending trend chart" width="100%"/>
+      <br/>
+      <sub><b>Dashboard</b> · Monthly spending vs. investment trends</sub>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <img src="./screenshots/profile_view.png" alt="Behaviour Profile — auto-generated risk score" width="100%"/>
+      <br/>
+      <sub><b>Profile</b> · Auto-generated risk score from transaction data</sub>
+    </td>
+    <td width="50%">
+      <img src="./screenshots/goals_view.png" alt="Goal Simulator — what-if slider" width="100%"/>
+      <br/>
+      <sub><b>Goals</b> · Real-time what-if goal simulator</sub>
+    </td>
+  </tr>
+</table>
 
-```mermaid
-graph TD
-    A[Customer Transaction History] -->|Ingests 6-Month Statement| B(Behavioral Profiling Engine)
-    B -->|Computes Trends & Anomalies| C[Financial Behaviour Twin]
-    C -->|Risk Category & Asset Ratios| D(Explainable Recommendation Engine)
-    D -->|Injects Profiling Context + Triggers| E[Groq AI Engine Llama-3.1]
-    E -->|Structured Advice + Triggers| F[React Neo-Bento UI]
-    F -->|Voice In/Out via Speech API| G[Browser WebSpeech Engine]
-    F -->|Interactive Sliders| H[What-If Goal Simulator]
-    F -->|Color-Coded Alerts| I[Proactive Nudge Panel]
-    F -->|Global State Management| J[Light/Dark Theme Context]
+<div align="center">
+  <img src="./screenshots/advisor_view.png" alt="Advisor — voice-enabled AI avatar" width="50%"/>
+  <br/>
+  <sub><b>Advisor</b> · Voice-enabled conversational AI avatar (Groq × WebSpeech API)</sub>
+</div>
+
+---
+
+## How It Works
+
+```
+Transaction History (6 months)
+        │
+        ▼
+┌──────────────────────────────┐
+│   Behavioural Profiling      │  ← Computes risk score, ratios,
+│   Engine  (server/engines/)  │    spend anomalies silently
+└──────────────┬───────────────┘
+               │
+               ▼
+┌──────────────────────────────┐
+│   Financial Behaviour Twin   │  ← Living data model of the customer
+│   (Risk · Ratios · Trends)   │
+└──────────────┬───────────────┘
+               │
+       ┌───────┴────────┐
+       ▼                ▼
+┌─────────────┐  ┌─────────────────┐
+│ Explainable │  │  Proactive Nudge │  ← Every tip has a data trigger
+│ Recommenda- │  │  Engine          │    Every alert has a root cause
+│ tions       │  └─────────────────┘
+└──────┬──────┘
+       │
+       ▼
+┌──────────────────────────────┐
+│   Groq LLM  (llama-3.1-8b)  │  ← Profile context injected as
+│   + WebSpeech API            │    system prompt; voice I/O free
+└──────────────────────────────┘
 ```
 
 ---
 
-## 🌟 The "Wow" Factors (Key Features)
+## Core Features
 
-### 1. Dynamic Financial Behaviour Twin
-Instead of static risk forms, MoneyMan continuously analyzes 6 months of historical transactions. It automatically calculates:
-*   **Risk Profile & Category** (Conservative, Moderate, Aggressive).
-*   **Asset Ratios** (Investment-to-Income, Savings-to-Income, Spending-to-Income).
-*   **Spend Anomalies** (e.g., alert when dining spend spikes by 132% or SIP reduces by 53%).
+**Financial Behaviour Twin**
+Silently analyzes 6 months of transaction data to auto-compute risk profile, asset ratios (Investment : Savings : Spending), and spending anomaly alerts. Zero questionnaires.
 
-### 2. Live Conversational Advisor with Audio Feedback
-A friendly, interactive wealth assistant powered by:
-*   **Groq (Llama-3.1-8B)**: Near-zero latency response generation.
-*   **WebSpeech API**: Native, local browser text-to-speech engine ensuring zero server latency and **zero marginal cost** per audio stream.
-*   **Interactive State Animations**: The avatar dynamically transitions between *Idle*, *Listening*, *Thinking*, and *Speaking* states, synced directly with WebSpeech API events.
+**Explainable Advisory Engine**
+Every recommendation surfaces its trigger — *"SIP reduced 53%, rebalancing advised."* Fully audit-ready for bank compliance.
 
-### 3. Fully Explainable Advisory Engine
-To comply with financial regulations and audit guidelines, every single suggestion provided by the AI has a clear **Triggers** list. If MoneyMan suggests increasing a SIP or shifting capital to debt funds, it clearly exposes the "Why" (e.g., *Trigger: Savings rate has declined by 60%*).
+**Voice-First Conversational Avatar**
+Groq Llama-3.1-8B for near-zero latency responses. Browser-native WebSpeech for TTS/STT — zero marginal cost per conversation.
 
-### 4. Interactive "What-If" Goal Simulator
-A visual tool showing the long-term impact of monthly saving decisions. Users adjust a fluid range slider to simulate changes in their monthly investment (SIP). The charts and months-to-goal progress update in real-time with automatic warnings if they fall behind schedule.
+**What-If Goal Simulator**
+Drag a slider, watch projected growth and months-to-goal update instantly. Warns when the user falls behind their target.
 
-### 5. Premium Neo-Bento Design System
-Designed to meet global Visa/Mastercard aesthetic standards:
-*   Modern Soft-Brutalist "Bento Grid" layout.
-*   Massive typography (`font-weight: 900`) for clear financial legibility.
-*   Massive, tactile rounded card layouts (`32px`–`40px`).
-*   Global unified **Light & Dark mode** toggle accessible from the sidebar.
+**Neo-Bento Design System**
+Soft-brutalist bento grid, `40px` border radius, `font-weight: 900` for financial legibility, full light/dark mode token system.
 
 ---
 
-## 📸 Product Interface & Visual Proof
+## Tech Stack
 
-### 📊 Portfolio Dashboard
-The primary landing zone, visualizing total portfolio value, asset allocation, monthly income, and dynamic spending trends.
-![Dashboard Overview](./screenshots/dashboard_view.png)
-
-### 👤 Financial Behaviour Twin & Profiling
-Exposes the computed risk score, spending category breakdowns, and dynamic risk category categorization without needing any questionnaires.
-![Behaviour Profile](./screenshots/profile_view.png)
-
-### 🗣️ Voice-Activated AI Wealth Avatar
-An interactive audio-supported agent with low latency, showcasing dynamic mouth states and chat history bubbles.
-![Conversational Avatar](./screenshots/advisor_view.png)
-
-### 📈 Goal Simulator
-Allows the customer to drag sliders in real-time to simulate investment growth, goal timelines, and shortfall alerts.
-![Goal Simulator](./screenshots/goals_view.png)
+| Layer | Technology |
+| :--- | :--- |
+| Frontend | React 18 · Vite 5 · Framer Motion |
+| Charts | Recharts |
+| Voice | Web Speech API (native, zero cost) |
+| Backend | Node.js · Express 5 |
+| AI | Groq Cloud · `llama-3.1-8b-instant` |
+| Styles | Vanilla CSS custom properties |
 
 ---
 
-## 🛠️ Technology Stack
+## Local Setup
 
-| Component | Technology | Role |
-| :--- | :--- | :--- |
-| **Frontend** | React 18, Vite 5 | Core Application Shell, state-driven user experience |
-| **Styling** | Vanilla CSS Variables | Design system tokens (border-radius, shadow tokens, theme palettes) |
-| **Visualizations**| Recharts | High-performance interactive financial charts |
-| **Animations** | Framer Motion | Fluid card entries, tab transitions, and avatar state physics |
-| **Voice Engine** | Web Speech API | Client-side zero-latency Text-to-Speech & Speech-to-Text |
-| **Backend** | Express 5, Node.js | Microservice serving API endpoints, profiling & nudge logic |
-| **LLM Inference** | Groq Cloud SDK | Blazing fast responses using `llama-3.1-8b-instant` |
+**Prerequisites:** Node.js v18+
 
----
-
-## ⚙️ Local Setup Instructions
-
-Follow these steps to run the application locally on your machine.
-
-### Prerequisites
-*   [Node.js](https://nodejs.org/) (v18 or higher recommended)
-*   npm (installed automatically with Node)
-
-### 1. Clone the Repository
 ```bash
+# 1. Clone
 git clone https://github.com/Durgaprasad-Developer/MoneyMan.git
 cd MoneyMan
-```
 
-### 2. Install Dependencies
-```bash
+# 2. Install
 npm install
-```
 
-### 3. Set Up Environment Variables
-Create a file named `.env` in the root directory:
-```bash
-GROQ_API_KEY=your_groq_api_key_here
-```
-*(Get your free API key from the [Groq Console](https://console.groq.com/))*
+# 3. Environment
+echo "GROQ_API_KEY=your_key_here" > .env
+# Get a free key → https://console.groq.com/
 
-### 4. Start the Application
-Run the concurrent development command which launches both the Express backend server (port `3002`) and the Vite React frontend server (port `5173`):
-```bash
+# 4. Run (starts both Express :3002 and Vite :5173)
 npm run dev
 ```
 
-Open your browser and navigate to `http://localhost:5173`.
+Open [`http://localhost:5173`](http://localhost:5173)
 
 ---
 
-## 🚀 Production Deployment Configuration
-
-This repository is optimized for deployment as a single **monolithic web service** on platforms like Render, Railway, or Heroku. The Express backend automatically serves the production build assets (`dist/`) created by Vite.
-
-### Deployment Settings:
-*   **Build Command**: `npm install && npm run build`
-*   **Start Command**: `node server/index.js`
-*   **Environment Variables**:
-    *   `GROQ_API_KEY`: *(your live Groq SDK key)*
-    *   `NODE_ENV`: `production`
-
----
-
-## 📂 Project Structure
+## Project Structure
 
 ```
-├── dist/                   # Compiled static production build assets (Vite output)
-├── server/                 # Express backend APIs & advisory engines
-│   ├── data/               # Mock customer details & transaction logs
-│   ├── engines/            # Analytical math (profiling, nudges, recommendations)
-│   │   ├── profiling.js    # Ingests transaction history to compute Risk Score & ratios
-│   │   ├── recommendations.js # Maps transaction patterns to compliant advice triggers
-│   │   └── nudges.js       # Calculates behavioral alerts & simulation paths
-│   └── index.js            # Express server entrypoint & API routes
-├── src/                    # React frontend application
-│   ├── components/         # Neo-Bento UI modules (Dashboard, Chat, Goals, Profile, Nudges)
-│   ├── context/            # Global Theme and State contexts
-│   ├── hooks/              # Speech synthesizer & backend API hook wrappers
-│   ├── utils/              # UI theme values, constants, and endpoints
-│   ├── App.jsx             # Shell layout and navigation sidebar
-│   └── index.css           # Global typography, color schemes (Light/Dark), and tokens
-└── Product_Report.pdf      # Detailed hackathon submission artifact
+├── server/
+│   ├── engines/
+│   │   ├── profiling.js          # Risk score, ratios, trend computation
+│   │   ├── recommendations.js    # Trigger-based explainable advice
+│   │   └── nudges.js             # Anomaly detection + goal simulation
+│   ├── data/                     # Mock transaction & customer data
+│   └── index.js                  # Express API (profile, chat, simulate)
+└── src/
+    ├── components/               # Dashboard, Chat, Goals, Profile, Nudges
+    ├── context/                  # Theme (light/dark) global state
+    ├── hooks/                    # API wrapper + speech synthesizer hooks
+    ├── utils/                    # Constants, formatters, color tokens
+    ├── App.jsx                   # Shell layout + sidebar navigation
+    └── index.css                 # Design token system (colors, radii, grids)
 ```
 
 ---
 
-*Built with ❤️ by Team MoneyMan for the IDBI Innovate Hackathon 2026.*
+## Deployment
+
+Monolithic service — Express serves the built React frontend in production.
+
+| Setting | Value |
+| :--- | :--- |
+| Build Command | `npm install && npm run build` |
+| Start Command | `node server/index.js` |
+| `GROQ_API_KEY` | your Groq key |
+| `NODE_ENV` | `production` |
+
+---
+
+<div align="center">
+
+Built for IDBI Innovate Hackathon 2026 · Track 01 · Team MoneyMan
+
+</div>
