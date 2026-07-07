@@ -18,36 +18,46 @@ MoneyMan is a plug-and-play AI wealth advisory module designed for IDBI Bank's d
 
 <table>
   <tr>
-    <td width="50%">
-      <img src="./screenshots/home_view.png" alt="Home — Bento overview with live alerts" width="100%"/>
+    <td width="33%" align="center">
+      <img src="./screenshots/home_view.png" alt="Home" width="100%"/>
       <br/>
-      <sub><b>Home</b> · Portfolio snapshot + proactive nudges</sub>
+      <sub><b>Home</b> · Portfolio + live nudges</sub>
     </td>
-    <td width="50%">
-      <img src="./screenshots/dashboard_view.png" alt="Dashboard — spending trend chart" width="100%"/>
+    <td width="33%" align="center">
+      <img src="./screenshots/dashboard_view.png" alt="Dashboard" width="100%"/>
       <br/>
-      <sub><b>Dashboard</b> · Monthly spending vs. investment trends</sub>
+      <sub><b>Dashboard</b> · Spending & investment trends</sub>
+    </td>
+    <td width="33%" align="center">
+      <img src="./screenshots/advisor_view.png" alt="Advisor" width="100%"/>
+      <br/>
+      <sub><b>Advisor</b> · Voice AI avatar (Groq × WebSpeech)</sub>
     </td>
   </tr>
   <tr>
-    <td width="50%">
-      <img src="./screenshots/profile_view.png" alt="Behaviour Profile — auto-generated risk score" width="100%"/>
+    <td width="33%" align="center">
+      <img src="./screenshots/profile_view.png" alt="Behaviour Profile" width="100%"/>
       <br/>
-      <sub><b>Profile</b> · Auto-generated risk score from transaction data</sub>
+      <sub><b>Profile</b> · Auto-generated risk score</sub>
     </td>
-    <td width="50%">
-      <img src="./screenshots/goals_view.png" alt="Goal Simulator — what-if slider" width="100%"/>
+    <td width="33%" align="center">
+      <img src="./screenshots/goals_view.png" alt="Goal Simulator" width="100%"/>
       <br/>
-      <sub><b>Goals</b> · Real-time what-if goal simulator</sub>
+      <sub><b>Goals</b> · What-if goal simulator</sub>
+    </td>
+    <td width="33%" align="center" valign="middle">
+      <br/><br/>
+      <b>Live Demo →</b>
+      <br/><br/>
+      <a href="https://moneyman-27st.onrender.com/">
+        <img src="https://img.shields.io/badge/Open%20App-moneyman--27st.onrender.com-4B3EC8?style=for-the-badge" alt="Live Demo"/>
+      </a>
+      <br/><br/>
+      Built for <b>IDBI Innovate 2026</b><br/>Track 01 · Digital Wealth Advisory
+      <br/><br/>
     </td>
   </tr>
 </table>
-
-<div align="center">
-  <img src="./screenshots/advisor_view.png" alt="Advisor — voice-enabled AI avatar" width="50%"/>
-  <br/>
-  <sub><b>Advisor</b> · Voice-enabled conversational AI avatar (Groq × WebSpeech API)</sub>
-</div>
 
 ---
 
